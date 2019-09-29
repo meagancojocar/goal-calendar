@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
 from goalCalendarApp import viewsets
-import users
 from rest_framework.authtoken import views
 from users import viewsets as UserViewsets
 
 router = routers.DefaultRouter()
+router.register(r'events', viewsets.EventViewSet)
+router.register(r'activity', viewsets.ActivityViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
