@@ -23,9 +23,11 @@ from users import viewsets as UserViewsets
 router = routers.DefaultRouter()
 router.register(r'events', viewsets.EventViewSet)
 router.register(r'activity', viewsets.ActivityViewSet)
+router.register(r'users', UserViewsets.CustomUserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('users/', include('django.contrib.auth.urls')),
     path('users/', include('django.contrib.auth.urls')),
     path('users/', include('users.urls')),
     path('api/', include(router.urls)),
