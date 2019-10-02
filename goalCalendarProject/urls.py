@@ -22,7 +22,7 @@ from users import viewsets as UserViewsets
 
 router = routers.DefaultRouter()
 router.register(r'events', viewsets.EventViewSet)
-router.register(r'activity', viewsets.ActivityViewSet)
+router.register(r'activity', viewsets.ActivityViewSet, basename='Activity')
 router.register(r'users', UserViewsets.CustomUserViewSet)
 
 urlpatterns = [

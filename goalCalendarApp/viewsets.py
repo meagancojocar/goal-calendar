@@ -5,10 +5,12 @@ from .serializers import ActivitySerializer, EventSerializer
 
 
 class ActivityViewSet(viewsets.ModelViewSet):
-    queryset = Activity.objects.all()
     serializer_class = ActivitySerializer
     permission_classes = (IsAuthenticated,)
 
+    def get_queryset(self):
+        user = self.request.user
+        return Activity.objects.filter(Activity=user)
 
 class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
